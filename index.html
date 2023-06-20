@@ -1285,7 +1285,7 @@
           <section class="contact-form">
             <h3 class="h3 form-title">Contact Form</h3>
 
-            <form action="#" class="form" data-form>
+            <form class="form" data-form onsubmit="sendEmail(event)" method="post">
               <div class="input-wrapper">
                 <input
                   type="text"
@@ -1320,6 +1320,28 @@
               </button>
             </form>
           </section>
+
+          <!-- Thank you modal container -->
+
+          <div class="modal-container" thanks-modal-container>
+            <div class="overlay" thanks-overlay></div>
+            <section class="testimonials-modal">
+              <button class="modal-close-btn" thanks-modal-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+              <div class="modal-content">
+                <h1 class="h3 thanks-modal-title">Thank You!</h1>
+
+                <div class="thanks-modal-content">
+                  <p>
+                    Thank you for contacting us! 
+                    We will receive your email and come back to you as soon as possible.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
         </article>
       </div>
     </main>

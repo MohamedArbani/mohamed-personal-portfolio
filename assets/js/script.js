@@ -136,6 +136,20 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
+const thanksModalContainer = document.querySelector("[thanks-modal-container]");
+const thanksModalCloseBtn = document.querySelector("[thanks-modal-close-btn]");
+const thanksOverlay = document.querySelector("[thanks-overlay]");
+
+// modal toggle function
+const thanksModalFunc = function () {
+  thanksModalContainer.classList.toggle("active");
+  thanksOverlay.classList.toggle("active");
+}
+
+// add click event to modal close button
+thanksModalCloseBtn.addEventListener("click", thanksModalFunc);
+thanksOverlay.addEventListener("click", thanksModalFunc);
+
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
@@ -148,6 +162,23 @@ for (let i = 0; i < formInputs.length; i++) {
     }
 
   });
+}
+
+function sendEmail(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  let fullName = formInputs[0].value;
+  let email = formInputs[1].value;
+  let message = formInputs[2].value;
+  
+  let subject = "New Email from " + fullName;
+  let body = "From: " + fullName + "\n\nEmail: " + email + "\n\nMessage: " + message;
+  
+  let mailtoLink = "mailto:moharbani01@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  
+  window.location.href = mailtoLink;
+
+  thanksModalFunc();
 }
 
 

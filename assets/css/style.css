@@ -681,6 +681,15 @@ main {
   opacity: 1;
 }
 
+.thanks-modal-title{
+  font-size: 30px;
+  text-align: center;
+}
+
+.thanks-modal-content{
+  text-align: center;
+}
+
 .modal-close-btn {
   position: absolute;
   top: 15px;
